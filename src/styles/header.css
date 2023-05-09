@@ -1,0 +1,24 @@
+header{
+    padding: 1rem;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #00000010;
+}
+
+.header__kenzie{
+    gap: 1rem;
+}
+.header__title{
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+.header__inputs__button{
+    font-size: 1.125rem;
+    font-weight: 700;
+    min-width: 142px;
+    cursor: pointer;    
+}
+
+.header__inputs{
+    gap: 0.7rem;
+}
