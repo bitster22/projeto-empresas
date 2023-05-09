@@ -1,12 +1,13 @@
 header{
     padding: 1rem;
+    width: 80%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.header-container{
     border-bottom: solid;
     border-width: 1px;
     border-color: #00000010;
-    width: 80%;
-    max-width: 100%;
-    
-    margin: 0 auto;
 }
 
 .header__kenzie{
