@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenzie Empresas</title>
+    <script
+      src="https://kit.fontawesome.com/df4648eec3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/flex.css">
+    <link rel="stylesheet" href="../styles/text.css">
+    <link rel="stylesheet" href="../styles/color.css">
+    <link rel="stylesheet" href="../styles/button.css">
+    <link rel="stylesheet" href="../styles/select.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/admin/admin.css">
+</head>
+<body>
+    <div class="flex flex__dir-column container">
+        <div class="header-container">
+            <header class="flex flex__space-between">
+                <div class="header__kenzie flex flex__align-center">
+                    <i class='fas fa-circle color-brand2'></i>
+                    <span class="header__title font-bold">Kenzie Empresas</span>
+                </div>
+                <div class="header__inputs flex">
+                    <button class="header__inputs__button bg-color-mode border-color-brand1 color-brand1 flex flex__align-center flex__justify-center">Logout</button>
+                </div>
+            </header>
+        </div>
+        <main class="flex flex__dir-column">
+            <div class="select-sector flex flex__justify-end">
+                <select name="sector" class="bg-color-brand1 color-mode">
+                    <option value="all">Selecionar Setor</option>
+                    <option value="it">TI</option>
+                    <option value="food">Alimentício</option>
+                    <option value="clothes">Roupas</option>
+                </select>
+            </div>
+            <div>
+                <h2>Departamentos</h2>
+                <button>+ Criar</button>
+            </div>
+            <ul>
+                <li>
+                    <div>
+                        <h3>DepartamentoNome</h3>
+                        <p>DepartamentoDescrição</p>
+                        <span>NomeCompanhia</span>
+                    </div>
+                    <div>
+                        <i class='far fa-eye'></i>
+                        <i class="fa-solid fa-pencil"></i>
+                        <i class="fa-regular fa-trash-can"></i>
+                    </div>
+                </li>
+            </ul>
+            <h2>Usuários cadastrados</h2>
+            <ul>
+                <li>
+                    <div>
+                        <h3>Username</h3>
+                        <span>NomeCompanhia</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-pencil"></i>
+                        <i class="fa-regular fa-trash-can"></i>
+                    </div>
+                </li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>

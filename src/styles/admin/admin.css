@@ -1,0 +1,14 @@
+.fa-circle{
+    color: rgba(66, 0, 255, 0.5);
+}
+
+select{
+    max-width: 288px;
+}
+
+main{
+    width: 80%;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 1rem;
+}

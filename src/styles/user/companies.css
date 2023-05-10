@@ -1,0 +1,19 @@
+.companies{
+    background-color: #F8F8F8;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #A8A8A8;
+    height: 467px;
+}
+.companies__not-hired{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.companies__company-infos{
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1.5rem;
+    background-color: var(--color-brand1);
+    color: var(--color-mode);
+}

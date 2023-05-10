@@ -1,0 +1,21 @@
+.list-employees{
+    padding: 1.5rem;
+    gap: 1.5rem;
+    height: 80%;
+    overflow: auto;
+}
+
+.list-employees__element{
+    background-color: var(--color-mode);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-brand1);
+    width: 27%;
+    min-height: 5.938rem;
+    padding: 1rem;
+}
+
+.list-employers__element__employee-name{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
