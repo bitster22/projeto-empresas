@@ -4,3 +4,7 @@ select {
     font-weight: 400;
     width: 100%;
   }
+
+.select-sector select{
+  appearance: none;
+}

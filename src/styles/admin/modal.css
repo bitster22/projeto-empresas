@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+dialog{
+    /*border: none;*/
+}
+
+.modal-close{
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    cursor: pointer;
+}
+
+.modal-container-view{
+    min-width: 857px;
+    padding: 1rem;
+}
+
+.modal__departament-name{
+    font-size: 2.25rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+.modal__departament-description{
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+.modal__departament-company{
+    font-size: 1.125rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}

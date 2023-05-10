@@ -95,8 +95,10 @@ textarea {
   font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
-  font-family: var(--font-primary);
   outline: none;
+}
+body{
+  font-family: var(--font-primary);
 }
 /* HTML5 display-role reset for older browsers */
 article,

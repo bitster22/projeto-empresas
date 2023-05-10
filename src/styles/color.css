@@ -4,6 +4,12 @@
 .color-brand2{
     color: var(--color-brand2);
 }
+.color-red{
+    color: var(--color-action2);
+}
+.color-yellow{
+    color: var(--color-action3);
+}
 .color-mode{
     color: var(--color-mode);
 }

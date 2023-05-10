@@ -12,3 +12,38 @@ main{
     margin: 0 auto;
     gap: 1rem;
 }
+
+.departament-title{
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+.create-departament{
+    border-style: none;
+    background-color: var(--color-brand1);
+    color: var(--color-mode);
+    font-size: 1.125rem;
+    font-weight: 500;
+    min-width: 150px;
+}
+.create-departament__plus-sign{
+    font-weight: 100;
+    font-size: 1.2rem;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #E9ECEF; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #0000FF; 
+  }
+
+  .material-symbols-outlined{
+    cursor: pointer;
+}

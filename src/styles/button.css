@@ -3,4 +3,5 @@ button{
     padding: 1rem;
     border-style: solid;
     border-width: 1px;
+    cursor: pointer;
 }
