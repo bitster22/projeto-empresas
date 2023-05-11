@@ -3,3 +3,17 @@ main{
     max-width: 100%;
     margin: 0 auto;
 }
+
+::-webkit-scrollbar {
+    width: 9px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffffff; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FFFFFF; 
+  }

@@ -40,16 +40,22 @@
             </section>
             <section class="home-companies flex flex__dir-column">
                 <div class="select-sector">
-                    <select name="sector" class="bg-color-brand1 color-mode">
+                    <select name="sector" id="select-category" class="bg-color-brand1 color-mode">
                         <option value="all">Selecionar Setor</option>
                         <option value="it">TI</option>
                         <option value="food">Alimentício</option>
                         <option value="clothes">Roupas</option>
                     </select>
+                    <img src="./src/assets/img/Polygon 1.png" class="triangle" alt="">
                 </div>
+                
                 <div class="home-companies__list--container flex flex__dir-column">
                     <h2 class="home-companies__list__title">Lista de empresas</h2>
                     <ul class="home-companies__list flex flex__dir-column">
+                        <li class="home-companies__list__element flex flex__dir-column">
+                            <h3 class="home-companies__list__element__company-name">Empresa Name</h3>
+                            <span class="home-companies__list__element__category color-brand1 flex flex__justify-center">Setor</span>
+                        </li>
                         <li class="home-companies__list__element flex flex__dir-column">
                             <h3 class="home-companies__list__element__company-name">Empresa Name</h3>
                             <span class="home-companies__list__element__category color-brand1 flex flex__justify-center">Setor</span>
@@ -71,5 +77,6 @@
             </section>
         </main>
     </div>
+    <script type="module" src="./src/scripts/index.js"></script>
 </body>
 </html>

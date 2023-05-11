@@ -17,11 +17,14 @@
 
 .home-companies__list{
     gap: 1.5rem;
+    height: 635px;
+    overflow-y: auto;
 }
 .home-companies__list__element{
     border: 1px solid #0000FF;
     padding: 1.5rem;
     gap: 1rem;
+    max-height: 116px;
 }
 .home-companies__list__element__company-name{
     font-size: 1.25rem;
@@ -33,5 +36,5 @@
     border: 1px solid #0000FF;
     border-radius: 255px;
     padding: 0.5rem 2rem;
-    max-width: 93px;
+    max-width: 110px;
 }
