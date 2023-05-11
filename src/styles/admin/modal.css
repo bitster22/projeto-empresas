@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 dialog{
-    /*border: none;*/
+    border: none;
+    position: absolute;
+    top: 10rem;
+}
+::backdrop{
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .modal-close{
@@ -14,12 +19,14 @@ dialog{
 .modal-container-view{
     min-width: 857px;
     padding: 1rem;
+    gap: 1rem;
 }
 
 .modal__departament-name{
     font-size: 2.25rem;
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
+    margin-bottom: 1rem;
 }
 .modal__departament-description{
     font-size: 1.25rem;
@@ -30,4 +37,154 @@ dialog{
     font-size: 1.125rem;
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
+}
+
+.hiring{
+    max-width: 825px;
+}
+dialog select{
+    background-color: var(--color-mode);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.modal__select{
+    min-width: 565px;
+}
+
+.modal__button__hire{
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: var(--color-action1);
+    color: var(--color-mode);
+    min-width: 190px;
+}
+
+.list-users-modal{
+    background-color: #F8F8F8;
+    height: 290px;
+    padding: 2rem;
+    gap: 2rem;
+    max-width: 825px ;
+    overflow-x: auto;
+}
+.list-users-modal__element{
+    background-color: var(--color-mode);
+    width: 306px;
+    padding: 1.5rem;
+    height: 196px;
+}
+.list-users-modal__element__info{
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.list-users-modal__element__info__username{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+.list-users-modal__element__info__company{
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.list-users-modal__element__button{
+    background-color: var(--color-mode);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-action2);
+    color: var(--color-action2);
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+dialog ::-webkit-scrollbar {
+    height: 9px;
+  }
+
+#departament-create{
+    width: 506px;
+}
+
+.modal-container-create{
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.modal-container-create input, .modal-container-create select{
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 100%;
+    font-size: 1.063rem;
+}
+
+.modal__buton__create{
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: var(--color-action1);
+    color: var(--color-mode);
+}
+
+#departament-edit{
+    width: 506px;
+}
+
+.modal-container-edit{
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.modal-container-edit textarea{
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 100%;
+    font-size: 1.063rem;
+    height: 119px;
+    resize: none;
+}
+
+#user-edit{
+    width: 506px;
+}
+
+.modal-container-edit-user{
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.modal-container-edit-user input{
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 100%;
+    font-size: 1.063rem;
+}
+
+#departament-delete{
+    width: 598px;
+}
+.modal-container-delete{
+    padding: 2rem 5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    gap: 2rem;
+}
+.modal__buton__remove{
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: var(--color-action2);
+    color: var(--color-mode);
+}
+.modal-text{
+    gap: 0.5rem;
+}
+
+#user-delete{
+    width: 598px;
+}
+
+.modal-container-delete-user{
+    padding: 2rem 5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    gap: 2rem;
 }

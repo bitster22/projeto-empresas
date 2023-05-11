@@ -2,7 +2,7 @@
     color: rgba(66, 0, 255, 0.5);
 }
 
-select{
+.select-sector__admin{
     max-width: 288px;
 }
 

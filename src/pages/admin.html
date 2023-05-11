@@ -40,7 +40,7 @@
         </div>
         <main class="flex flex__dir-column">
             <div class="select-sector flex flex__justify-end">
-                <select name="sector" class="bg-color-brand1 color-mode">
+                <select name="sector" class="select-sector__admin bg-color-brand1 color-mode">
                     <option value="all">Selecionar Setor</option>
                     <option value="it">TI</option>
                     <option value="food">Alimentício</option>
@@ -201,13 +201,13 @@
                 </li>
             </ul>
         </main>
-        <dialog id="departament-view" open="">
+        <dialog id="departament-view">
             <span class="modal-close">X</span>
-            <div class="modal-container-view">
+            <div class="modal-container-view flex flex__dir-column">
                 <h2 class="modal__departament-name">Nome do departamento</h2>
                 <p class="modal__departament-description">Descrição do departamento</p>
                 <span class="modal__departament-company">Empresa pertencente</span>
-                <div>
+                <div class="hiring flex flex__space-between">
                     <select class="modal__select" name="" id="">
                         <option value="">Selecionar usuário</option>
                         <option value="">marcos</option>
@@ -215,15 +215,82 @@
                     </select>
                     <button class="modal__button__hire">Contratar</button>
                 </div>
-                <ul class="list-users-modal">
-                    <li class="list-users-modal__element">
-                        <div>
-                            <h3 class="list-users-modal__element__username">Username</h3>
-                            <span class="list-users-modal__element__company">Company Name</span>
+                <ul class="list-users-modal flex">
+                    <li class="list-users-modal__element flex flex__dir-column flex__space-between flex__shrink">
+                        <div class="list-users-modal__element__info flex flex__dir-column flex__align-center">
+                            <h3 class="list-users-modal__element__info__username">Username</h3>
+                            <span class="list-users-modal__element__info__company">Company Name</span>
                         </div>
-                        <button>Desligar</button>
+                        <button class="list-users-modal__element__button">Desligar</button>
+                    </li>
+                    <li class="list-users-modal__element flex flex__dir-column flex__space-between flex__shrink">
+                        <div class="list-users-modal__element__info flex flex__dir-column flex__align-center">
+                            <h3 class="list-users-modal__element__info__username">Username</h3>
+                            <span class="list-users-modal__element__info__company">Company Name</span>
+                        </div>
+                        <button class="list-users-modal__element__button">Desligar</button>
+                    </li>
+                    <li class="list-users-modal__element flex flex__dir-column flex__space-between flex__shrink">
+                        <div class="list-users-modal__element__info flex flex__dir-column flex__align-center">
+                            <h3 class="list-users-modal__element__info__username">Username</h3>
+                            <span class="list-users-modal__element__info__company">Company Name</span>
+                        </div>
+                        <button class="list-users-modal__element__button">Desligar</button>
                     </li>
                 </ul>
+            </div>
+        </dialog>
+        <dialog id="departament-create">
+            <span class="modal-close">X</span>
+            <div class="modal-container-create flex flex__dir-column">
+                <h2 class="modal__departament-name">Criar Departamento</h2>
+                <input type="text" placeholder="Nome do departamento" name="" id="">
+                <input type="text" placeholder="Descrição" name="" id="">
+                <select class="modal-company-select" name="" id="">
+                    <option value="">Selecionar empresa</option>
+                    <option value="">KenzieFlix</option>
+                    <option value="">KenzieX</option>
+                    <option value="">Kenzie Academy</option>
+                </select>
+                <button class="modal__buton__create">Criar</button>
+            </div>
+        </dialog>
+        <dialog id="user-edit">
+            <span class="modal-close">X</span>
+            <div class="modal-container-edit-user flex flex__dir-column">
+                <h2 class="modal__departament-name">Editar usuário</h2>
+                <input type="text" placeholder="Nome do departamento" name="" id="">
+                <input type="text" placeholder="Descrição" name="" id="">
+                <button class="modal__buton__create">Salvar</button>
+            </div>
+        </dialog>
+        <dialog id="departament-edit">
+            <span class="modal-close">X</span>
+            <div class="modal-container-edit flex flex__dir-column">
+                <h2 class="modal__departament-name">Editar usuário</h2>
+                <textarea name="" placeholder="Valores anteriores da descrição" id="" cols="30" rows="10"></textarea>
+                <button class="modal__buton__create">Salvar</button>
+            </div>
+        </dialog>
+        <dialog id="departament-delete">
+            <span class="modal-close">X</span>
+            <div class="modal-container-delete flex flex__dir-column">
+                <div class="modal-text flex flex__dir-column flex__align-center">
+                    <p>Realmente deseja remover o</p>
+                    <p>Departamento Nome</p>
+                    <p>e demitir seus funcionários?</p>
+                </div>
+                <button class="modal__buton__remove">Remover</button>
+            </div>
+        </dialog>
+        <dialog id="user-delete" open>
+            <span class="modal-close">X</span>
+            <div class="modal-container-delete-user flex flex__dir-column">
+                <div class="modal-text flex flex__dir-column flex__align-center">
+                    <p>Realmente deseja remover o</p>
+                    <p>usuário<span> NOME</span></p>
+                </div>
+                <button class="modal__buton__remove">Remover</button>
             </div>
         </dialog>
     </div>
