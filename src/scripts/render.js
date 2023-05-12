@@ -27,7 +27,7 @@ export function renderSelectCategory(category){
     select.appendChild(option);
 }
 
-function categoryCompanyList(id){
+export function categoryCompanyList(id){
     const categories = JSON.parse(localStorage.getItem("categories"));
 
     let categoryName;

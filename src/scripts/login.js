@@ -1,0 +1,46 @@
+import { loginRequest } from "./request.js";
+
+function handleButtonLoginPage(){
+    const homeButton = document.querySelector("#login__home__button");
+    const registerButton = document.querySelectorAll(".login__register__button");
+
+    homeButton.addEventListener("click", ()=>{
+        location.replace("../../index.html");
+    })
+
+    registerButton.forEach((button)=>{
+        button.addEventListener("click", ()=>{
+            location.replace("./register.html")
+        })
+    })
+}
+
+function handleLogin(){
+    const inputs = document.querySelectorAll(".login-screen__input");
+    const button = document.querySelector("#login-button");
+
+    let loginBody = {};
+    let count = 0;
+
+    button.addEventListener("click", async (event)=>{
+        event.preventDefault();
+
+        inputs.forEach(input =>{
+            if(input.value.trim()==""){
+                count++;
+            }
+
+            loginBody[input.name] = input.value;
+        })
+        if(count !=0){
+            count=0;
+            console.log("Preencha os campos necessários");
+        }else{
+            const token = await loginRequest(loginBody);
+            return token;
+        }
+    })
+}
+
+handleLogin();
+handleButtonLoginPage();
