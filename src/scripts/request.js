@@ -101,3 +101,21 @@ export async function getDepartamentInfo(departament_id){
     })
     return departamentInfo;
 }
+
+export async function registerRequest(registerBody){
+    const register = await fetch(`${baseUrl}/employees/create`, {
+        method: "POST",
+        headers: requestHeaders,
+        body: JSON.stringify(registerBody)
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            location.replace("./login.html")
+            return response;
+        }else{
+            console.log("Erro");
+        }
+    })
+    return register;
+}

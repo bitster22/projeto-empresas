@@ -28,21 +28,22 @@
                     <span class="header__title font-bold">Kenzie Empresas</span>
                 </div>
                 <div class="header__inputs flex">
-                    <button class="header__inputs__button bg-color-mode border-color-brand1 color-brand1 flex flex__align-center flex__justify-center">Home</button>
-                    <button class="header__inputs__button bg-color-brand1 border-color-brand1 color-mode flex flex__align-center flex__justify-center">Login</button>
+                    <button id="home-button" class="header__inputs__button bg-color-mode border-color-brand1 color-brand1 flex flex__align-center flex__justify-center">Home</button>
+                    <button class="login-button header__inputs__button bg-color-brand1 border-color-brand1 color-mode flex flex__align-center flex__justify-center">Login</button>
                 </div>
             </header>
         </div>
         <main>
             <div class="register-screen flex flex__dir-column">
                 <h1 class="register-screen__title">Cadastre-se</h1>
-                <input class="register-screen__input" placeholder="Seu nome" type="text">
-                <input class="register-screen__input" placeholder="Seu e-mail" type="text">
-                <input class="register-screen__input" placeholder="Sua Senha" type="password">
-                <button class="register-screen__button bg-color-brand1 color-mode">Login</button>
+                <input class="register-screen__input" name="name" placeholder="Seu nome" type="text">
+                <input class="register-screen__input" name="email" placeholder="Seu e-mail" type="text">
+                <input class="register-screen__input" name="password" placeholder="Sua Senha" type="password">
                 <button class="register-screen__button register-screen__button-sign-in color-brand1">Cadastre-se</button>
+                <button class="login-button register-screen__button bg-color-brand1 color-mode">Login</button>
             </div>
         </main>
     </div>
+    <script type="module" src="../scripts/register.js"></script>
 </body>
 </html>
