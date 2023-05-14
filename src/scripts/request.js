@@ -60,8 +60,44 @@ export async function loginRequest(loginBody){
             localStorage.setItem("isAdm", JSON.stringify(isAdm));
 
             console.log(authToken, isAdm);
+
+            if(!isAdm){
+                console.log("Toast");
+                location.replace("./user.html")
+            }
         }else{
             console.log("Erro");
         }
     })
+}
+
+export async function getEmployeeInfo(){
+    const userInfo = await fetch(`${baseUrl}/employees/profile`, {
+        method: "GET",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            localStorage.setItem("userInfo", JSON.stringify(response));
+        }else{
+            console.log("Erro - colocar o toast");
+        }
+    })
+}
+
+export async function getDepartamentInfo(departament_id){
+    const departamentInfo = await fetch(`${baseUrl}/departments/readById/${departament_id}`,{
+        method: "GET",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("Erro - colocar o toast");
+        }
+    })
+    return departamentInfo;
 }

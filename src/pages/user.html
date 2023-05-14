@@ -30,8 +30,7 @@
                     <span class="header__title font-bold">Kenzie Empresas</span>
                 </div>
                 <div class="header__inputs flex">
-                    <button class="header__inputs__button bg-color-mode border-color-brand1 color-brand1 flex flex__align-center flex__justify-center">Login</button>
-                    <button class="header__inputs__button bg-color-brand1 border-color-brand1 color-mode flex flex__align-center flex__justify-center">Cadastro</button>
+                    <button id="logout__login" class="header__inputs__button bg-color-mode border-color-brand1 color-brand1 flex flex__align-center flex__justify-center">Logout</button>
                 </div>
             </header>
         </div>
@@ -40,9 +39,12 @@
                 <h1 class="user-info__username">USERNAME</h1>
                 <p class="user-info__email">meuemail@mail.com</p>
             </div>
-            <div class="companies flex flex__align-center flex__justify-center" style="display: flex;">
-                <span class="companies__not-hired">Você ainda não foi contratado</span>
-            </div>
+            <!--
+                <div class="companies flex flex__align-center flex__justify-center" style="display: none;">
+                    <span class="companies__not-hired">Você ainda não foi contratado</span>
+                </div>
+            -->
+            
             <div class="companies">
                 <h2 class="companies__company-infos flex flex__justify-center">NomeCompanhia - NomeDepartamento</h2>
                 <ul class="list-employees flex flex__space-between flex__wrap">
@@ -76,9 +78,17 @@
                     <li class="list-employees__element">
                         <span class="list-employers__element__employee-name">NomeFuncionário</span>
                     </li>
+                    <li class="list-employees__element">
+                        <span class="list-employers__element__employee-name">NomeFuncionário</span>
+                    </li>
+                    <li class="list-employees__element">
+                        <span class="list-employers__element__employee-name">NomeFuncionário</span>
+                    </li>
+                    
                 </ul>
             </div>
         </main>
     </div>
+    <script type="module" src="../scripts/user.js"></script>
 </body>
 </html>

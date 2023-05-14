@@ -38,3 +38,65 @@ export function categoryCompanyList(id){
     })
     return categoryName;
 }
+
+export function renderUserInfo(user){
+    const userInfo = document.querySelector(".user-info");
+    userInfo.innerHTML = "";
+
+    const userName = document.createElement("h1");
+    const userEmail = document.createElement("p");
+
+    userName.classList.add("user-info__username");
+    userEmail.classList.add("user-info__email");
+
+    userName.innerHTML = user.name;
+    userEmail.innerHTML = user.email;
+
+    userInfo.append(userName, userEmail);
+}
+
+export function renderUserCompany(departamentInfo){
+    const companies = document.querySelector(".companies");
+    companies.innerHTML="";
+
+    const companiesTitle = document.createElement("h2");
+    const list = document.createElement("ul");
+
+    companiesTitle.classList.add("companies__company-infos", "flex", "flex__justify-center");
+    list.classList.add("list-employees", "flex", "flex__space-between", "flex__wrap");
+
+    companiesTitle.innerText = `${departamentInfo.company.name} - ${departamentInfo.name}`
+
+    companies.append(companiesTitle, list);
+}
+
+export function renderUserCompanyList(name){
+    const list = document.querySelector(".list-employees");
+
+    const listElement = document.createElement("li");
+    const employeeName = document.createElement("span");
+
+    listElement.classList.add("list-employees__element");
+    employeeName.classList.add("list-employers__element__employee-name");
+
+    listElement.appendChild(employeeName);
+
+    employeeName.innerHTML = name;
+
+    list.appendChild(listElement);
+}
+
+export function renderUserCompanyNotHired(){
+    const companies = document.querySelector(".companies");
+
+    const NotHiredMessage = document.createElement("span");
+
+    companies.innerHTML="";
+
+    companies.classList.add("flex", "flex__align-center", "flex__justify-center");
+    NotHiredMessage.classList.add("companies__not-hired");
+
+    NotHiredMessage.innerText = "Você ainda não foi contratado";
+
+    companies.appendChild(NotHiredMessage);
+}

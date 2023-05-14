@@ -1,7 +1,7 @@
 .list-employees{
-    padding: 1.5rem;
+    padding: 2rem;
     gap: 1.5rem;
-    height: 80%;
+    height: 365px;
     overflow: auto;
 }
 
@@ -11,7 +11,7 @@
     border-width: 1px;
     border-color: var(--color-brand1);
     width: 27%;
-    min-height: 5.938rem;
+    height: 95px;
     padding: 1rem;
 }
 

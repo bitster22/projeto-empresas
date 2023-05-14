@@ -35,7 +35,6 @@ async function showSelectCategories(){
     })
 
     select.addEventListener("change", async ()=>{
-        handleSelectHome(select.value);
         if(select.value=="all"){
             showCompaniesInfos();
         }else{
