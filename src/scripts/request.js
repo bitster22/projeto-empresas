@@ -253,3 +253,36 @@ export async function deleteUserRequest(employee_id){
     })
     return user;
 }
+
+export async function getEmployeesOutOfWork(){
+    const users = await fetch(`${baseUrl}/employees/outOfWork`, {
+        method: "GET",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("Erro - colocar o toast");
+        }
+    })
+    return users;
+}
+
+export async function hireUserRequest(userBody, employee_id){
+    const user = await fetch(`${baseUrl}/employees/hireEmployee/${employee_id}`, {
+        method: "PATCH",
+        headers: requestHeaders,
+        body: JSON.stringify(userBody)
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("Erro");
+        }
+    })
+    return user;
+}

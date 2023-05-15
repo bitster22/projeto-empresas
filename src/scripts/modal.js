@@ -1,5 +1,5 @@
-import { createDepartamentRequest, deleteDepartamentRequest, deleteUserRequest, getAllCompanies, getDepartamentInfo, updateDepartamentRequest, updateUserRequest } from "./request.js";
-import { renderModalSelectCompany } from "./render.js";
+import { createDepartamentRequest, deleteDepartamentRequest, deleteUserRequest, getAllCompanies, getDepartamentInfo, getEmployeesOutOfWork, hireUserRequest, updateDepartamentRequest, updateUserRequest } from "./request.js";
+import { renderModalSelectCompany, renderModalViewStaticComponents } from "./render.js";
 import { adminListDepartaments, adminListEmployee } from "./admin.js";
 
 function handleModals(){
@@ -36,7 +36,7 @@ export async function handleEditDepartament(){
     const departamentEditButton = document.querySelector("#modal-edit-button");
     departamentDescription.innerHTML =  (await getDepartamentInfo(editDepartamentModal.dataset.departamentId)).description;
 
-    let editBody = {}
+    let editBody = {};
 
     departamentEditButton.addEventListener("click", async ()=>{
         editBody[departamentDescription.name] = departamentDescription.value;
@@ -58,6 +58,27 @@ export async function handleDeleteDepartament(){
         deleteDepartamentModal.close();
     })
 
+}
+
+export async function handleViewDepartament(){
+    const viewDepartamentModal = document.querySelector("#departament-view");
+    const hireButton = document.querySelector(".modal__button__hire");
+    const select = document.querySelector("#modal-view-select");
+    const departament = await getDepartamentInfo(viewDepartamentModal.dataset.departamentId);
+    const notEmployed = await getEmployeesOutOfWork();
+
+    let hireBody = {};
+
+    renderModalViewStaticComponents(departament, notEmployed);
+
+    hireButton.addEventListener("click", async ()=>{
+        
+        hireBody["department_id"] = viewDepartamentModal.dataset.departamentId;
+        const hiring = await hireUserRequest(hireBody, select.value);
+        adminListEmployee();
+        viewDepartamentModal.close();
+        console.log(hiring);
+    })
 }
 
 async function handleCreateDepartament(){

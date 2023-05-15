@@ -1,4 +1,4 @@
-import { handleEditDepartament, handleDeleteDepartament, handleEditUser, handleDeleteUser } from "./modal.js";
+import { handleEditDepartament, handleDeleteDepartament, handleEditUser, handleDeleteUser, handleViewDepartament } from "./modal.js";
 
 export function renderCompanyHome(company){
     const ul = document.querySelector(".home-companies__list");
@@ -151,6 +151,16 @@ export function renderDepartamentList(departament, companyName){
 
     eyeIcon.innerHTML = "visibility";
     eyeIcon.dataset.departamentId = departament.id;
+    eyeIcon.addEventListener("click", ()=>{
+        const viewDepartamentModal = document.querySelector("#departament-view");
+        const closeViewModal = document.querySelector("#close__departament-view");
+        viewDepartamentModal.showModal();
+        viewDepartamentModal.dataset.departamentId = departament.id;
+        handleViewDepartament();
+        closeViewModal.addEventListener("click", ()=>{
+            viewDepartamentModal.close();
+        })
+    })
     pencilIcon.innerHTML = "edit";
     pencilIcon.dataset.departamentId = departament.id;
     pencilIcon.addEventListener("click", ()=>{
@@ -268,4 +278,28 @@ export function renderModalSelectCompany(company){
     option.value = company.id;
 
     select.appendChild(option);
+}
+
+export function renderModalViewStaticComponents(departament, uninployedList){
+    const h2DepartamentName = document.querySelector(".modal__departament-name");
+    const pDepartamentDescription = document.querySelector(".modal__departament-description");
+    const spanCompanyName = document.querySelector(".modal__departament-company");
+    const select = document.querySelector("#modal-view-select");
+    select.innerHTML="";
+    const optionSelect = document.createElement("option");
+    optionSelect.innerHTML = "Selecionar usuário";
+    optionSelect.value = "no-user"
+    select.appendChild(optionSelect);
+    const outOfWorkEmployees = uninployedList;
+
+    outOfWorkEmployees.forEach((employee)=>{
+        const option = document.createElement("option");
+        option.innerHTML = employee.name;
+        option.value = employee.id;
+        select.appendChild(option);
+    })
+
+    h2DepartamentName.innerHTML = departament.name;
+    pDepartamentDescription.innerHTML = departament.description;
+    spanCompanyName.innerHTML = departament.company.name;
 }
