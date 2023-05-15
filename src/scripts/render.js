@@ -100,3 +100,99 @@ export function renderUserCompanyNotHired(){
 
     companies.appendChild(NotHiredMessage);
 }
+
+export function renderSelectCompany(company){
+    const select = document.querySelector(".select-sector__admin");
+    const option = document.createElement("option");
+
+    option.innerHTML = company.name;
+    option.value = company.id;
+
+    select.appendChild(option);
+}
+
+export function renderDepartamentList(departament, companyName){
+    const list = document.querySelector(".list-department");
+
+    const listElement = document.createElement("li");
+
+    const divInfoContainer = document.createElement("div");
+
+    const h3DepartamentName = document.createElement("h3");
+    const pDescription = document.createElement("p");
+    const spanCompanyName = document.createElement("span");
+
+    const divIconsContainer = document.createElement("div");
+
+    const eyeIcon = document.createElement("i");
+    const pencilIcon = document.createElement("i");
+    const trashIcon = document.createElement("i");
+
+    listElement.classList.add("list-department__element", "flex", "flex__space-between");
+
+    divInfoContainer.classList.add("list-department__element__info", "flex", "flex__dir-column");
+
+    h3DepartamentName.classList.add("list-department__element__info__departament-name");
+    pDescription.classList.add("list-department__element__info__departament-description");
+    spanCompanyName.classList.add("list-department__element__info__company-name");
+
+    h3DepartamentName.innerHTML = departament.name;
+    pDescription.innerHTML = departament.description;
+    spanCompanyName.innerHTML = companyName;
+
+    divIconsContainer.classList.add("list-department__element__icons", "flex", "flex__dir-column", "flex__justify-center");
+    eyeIcon.classList.add("material-symbols-outlined", "color-brand1");
+    pencilIcon.classList.add("material-symbols-outlined", "color-yellow");
+    trashIcon.classList.add("material-symbols-outlined", "color-red");
+
+    eyeIcon.innerHTML = "visibility";
+    eyeIcon.dataset.departamentId = departament.id;
+    pencilIcon.innerHTML = "edit";
+    pencilIcon.dataset.departamentId = departament.id;
+    trashIcon.innerHTML = "delete";
+    trashIcon.dataset.departamentId = departament.id;
+
+    divInfoContainer.append(h3DepartamentName, pDescription, spanCompanyName);
+    divIconsContainer.append(eyeIcon, pencilIcon, trashIcon);
+    listElement.append(divInfoContainer, divIconsContainer);
+    list.appendChild(listElement);
+}
+
+export function renderEmployeeList(employee, companyName){
+    const list = document.querySelector(".list-users");
+    const listElement = document.createElement("li");
+
+    const divInfoContainer = document.createElement("div");
+    const h3UserName = document.createElement("h3");
+    const spanCompanyName = document.createElement("span");
+
+    const divIconsContainer = document.createElement("div");
+    const pencilIcon = document.createElement("i");
+    const trashIcon = document.createElement("i");
+
+    listElement.classList.add("list-users__element", "flex", "flex__space-between");
+
+    divInfoContainer.classList.add("list-users__element__info", "flex", "flex__dir-column");
+    h3UserName.classList.add("list-users__element__info__username");
+    spanCompanyName.classList.add("list-users__element__info__company-name");
+
+    h3UserName.innerHTML = employee.name;
+    spanCompanyName.innerHTML = companyName;
+
+    divIconsContainer.classList.add("list-users__element__icons", "flex", "flex__dir-column", "flex__justify-center");
+    
+    pencilIcon.classList.add("material-symbols-outlined", "color-yellow");
+    trashIcon.classList.add("material-symbols-outlined", "color-red");
+
+    pencilIcon.innerHTML = "edit";
+    pencilIcon.dataset.employeeId = employee.id;
+    trashIcon.innerHTML = "delete";
+    trashIcon.dataset.employeeId = employee.id;
+
+    divInfoContainer.append(h3UserName, spanCompanyName);
+    divIconsContainer.append(pencilIcon, trashIcon);
+
+    listElement.append(divInfoContainer, divIconsContainer);
+    
+    list.appendChild(listElement);
+}

@@ -41,11 +41,12 @@
         <main class="flex flex__dir-column">
             <div class="select-sector flex flex__justify-end">
                 <select name="sector" class="select-sector__admin bg-color-brand1 color-mode">
-                    <option value="all">Selecionar Setor</option>
+                    <option value="all">Selecionar Empresa</option>
                     <option value="it">TI</option>
                     <option value="food">Alimentício</option>
                     <option value="clothes">Roupas</option>
                 </select>
+                <img src="../assets/img/Polygon 1.png" class="triangle" alt="">
             </div>
             <div class="flex flex__space-between">
                 <h2 class="departament-title">Departamentos</h2>
@@ -283,7 +284,7 @@
                 <button class="modal__buton__remove">Remover</button>
             </div>
         </dialog>
-        <dialog id="user-delete" open>
+        <dialog id="user-delete">
             <span class="modal-close">X</span>
             <div class="modal-container-delete-user flex flex__dir-column">
                 <div class="modal-text flex flex__dir-column flex__align-center">
@@ -294,5 +295,6 @@
             </div>
         </dialog>
     </div>
+    <script type="module" src="../scripts/admin.js"></script>
 </body>
 </html>

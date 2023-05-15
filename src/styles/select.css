@@ -14,7 +14,7 @@ select {
 }
 .triangle{
   position: absolute;
-  right: 5%;
+  right: 3%;
   top: 35%;
   pointer-events: none;
 }

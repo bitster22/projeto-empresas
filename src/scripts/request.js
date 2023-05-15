@@ -64,6 +64,9 @@ export async function loginRequest(loginBody){
             if(!isAdm){
                 console.log("Toast");
                 location.replace("./user.html")
+            }else{
+                console.log("Toast");
+                location.replace("./admin.html")
             }
         }else{
             console.log("Erro");
@@ -118,4 +121,52 @@ export async function registerRequest(registerBody){
         }
     })
     return register;
+}
+
+export async function getAllDepartaments(){
+    const allDepartaments = await fetch(`${baseUrl}/departments/readAll`, {
+        method: "GET",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("Erro - colocar o toast");
+        }
+    })
+    return allDepartaments;
+}
+
+export async function getAllUsers(){
+    const allUsers = await fetch(`${baseUrl}/employees/readAll`, {
+        method: "GET",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("Erro - colocar o toast");
+        }
+    })
+    return allUsers;
+}
+
+export async function getCompanyInfo(company_id){
+    const companyInfo = await fetch(`${baseUrl}/companies/readById/${company_id}`, {
+        method: "GET",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("Erro, colocar o toast");
+        }
+    })
+    return companyInfo;
 }
