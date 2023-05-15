@@ -1,17 +1,22 @@
 import { getAllDepartaments, getCompanyInfo, getDepartamentInfo } from "./request.js";
 import { getAllCompanies } from "./request.js";
-import { renderDepartamentList, renderSelectCompany, renderEmployeeList } from "./render.js";
+import { renderDepartamentList, renderSelectCompany, renderEmployeeList, renderNoDepartaments } from "./render.js";
 import { getAllUsers } from "./request.js";
 
 async function adminListDepartaments(){
     const allDepartaments = await getAllDepartaments();
     const listDepartaments = document.querySelector(".list-department");
-    listDepartaments.innerHTML = ""
-    
-    allDepartaments.forEach(async (departament)=>{
-        const companyName = (await getDepartamentInfo(departament.id)).company.name;
-        renderDepartamentList(departament, companyName);
-    })
+    listDepartaments.innerHTML = "";
+
+    if(allDepartaments==null){
+        renderNoDepartaments("Não há departamentos cadastrados");
+    }else{
+        allDepartaments.forEach(async (departament)=>{
+
+            const companyName = (await getDepartamentInfo(departament.id)).company.name;
+            renderDepartamentList(departament, companyName);
+        })
+    }
 }
 
 async function adminSelectCompanies(){
@@ -29,6 +34,29 @@ async function adminSelectCompanies(){
 
     companiesInfo.forEach((company)=>{
         renderSelectCompany(company);
+    })
+
+    adminSelect.addEventListener("change", async ()=>{
+        if(adminSelect.value=="all"){
+            adminListDepartaments();
+        }else{
+            const listDepartaments = document.querySelector(".list-department");
+            listDepartaments.innerHTML = "";
+
+            const filteredDepartaments = (await getCompanyInfo(adminSelect.value));
+            console.log(filteredDepartaments.departments);
+            if(filteredDepartaments.departments.length == 0){
+                renderNoDepartaments(`Empresa ${filteredDepartaments.name} não
+                possui departamentos`);
+                console.log(filteredDepartaments.name);
+            }else{
+                filteredDepartaments.departments.forEach(async (departament)=>{
+                    const companyName = (await getDepartamentInfo(departament.id)).company.name
+                    renderDepartamentList(departament, companyName);
+                    console.log(departament);
+                })
+            }
+        }
     })
 }
 

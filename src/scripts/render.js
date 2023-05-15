@@ -128,6 +128,8 @@ export function renderDepartamentList(departament, companyName){
     const pencilIcon = document.createElement("i");
     const trashIcon = document.createElement("i");
 
+    list.classList.remove("flex__align-center", "flex__justify-center");
+
     listElement.classList.add("list-department__element", "flex", "flex__space-between");
 
     divInfoContainer.classList.add("list-department__element__info", "flex", "flex__dir-column");
@@ -195,4 +197,20 @@ export function renderEmployeeList(employee, companyName){
     listElement.append(divInfoContainer, divIconsContainer);
     
     list.appendChild(listElement);
+}
+
+export function renderNoDepartaments(departamentPhrase){
+    const departaments = document.querySelector(".list-department");
+
+    const noDepartaments = document.createElement("span");
+
+    departaments.innerHTML="";
+
+    departaments.classList.add("flex", "flex__align-center", "flex__justify-center");
+    noDepartaments.classList.add("list-departaments__no-departaments");
+
+    noDepartaments.innerHTML = departamentPhrase;
+
+    departaments.appendChild(noDepartaments);
+
 }
