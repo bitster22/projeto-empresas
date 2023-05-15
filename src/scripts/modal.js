@@ -1,4 +1,4 @@
-import { createDepartamentRequest, getAllCompanies, getDepartamentInfo, updateDepartamentRequest } from "./request.js";
+import { createDepartamentRequest, deleteDepartamentRequest, getAllCompanies, getDepartamentInfo, updateDepartamentRequest } from "./request.js";
 import { renderModalSelectCompany } from "./render.js";
 import { adminListDepartaments } from "./admin.js";
 
@@ -42,7 +42,23 @@ export async function handleEditDepartament(){
         editBody[departamentDescription.name] = departamentDescription.value;
         const departamentEdit = await updateDepartamentRequest(editBody, editDepartamentModal.dataset.departamentId);
         adminListDepartaments();
+        editDepartamentModal.close();
     })
+}
+
+export async function handleDeleteDepartament(){
+    const deleteDepartamentModal = document.querySelector("#departament-delete");
+    const deleteDepartamentName = document.querySelector(".delete-departament-name");
+    const deleteDepartamentButton = document.querySelector("#modal-delete-button");
+
+    deleteDepartamentName.innerHTML = `Departamento ${(await getDepartamentInfo(deleteDepartamentModal.dataset.departamentId)).name}`
+    deleteDepartamentButton.addEventListener("click", async ()=>{
+        const deleteDepartament = await deleteDepartamentRequest(deleteDepartamentModal.dataset.departamentId);
+        console.log(deleteDepartament)
+        adminListDepartaments();
+        deleteDepartamentModal.close();
+    })
+
 }
 
 async function handleCreateDepartament(){
@@ -78,4 +94,3 @@ async function handleCreateDepartament(){
 handleModals();
 createDepartamentSelectCompany();
 handleCreateDepartament();
-//handleEditDepartament()

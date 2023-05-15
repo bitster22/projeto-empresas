@@ -204,3 +204,19 @@ export async function updateDepartamentRequest(departamentBody, department_id){
     })
     return departament;
 }
+
+export async function deleteDepartamentRequest(department_id){
+    const departament = await fetch(`${baseUrl}/departments/delete/${department_id}`,{
+        method: "DELETE",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log(response.message);
+        }
+    })
+    return departament;
+}

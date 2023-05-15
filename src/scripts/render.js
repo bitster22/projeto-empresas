@@ -1,4 +1,4 @@
-import { handleEditDepartament } from "./modal.js";
+import { handleEditDepartament, handleDeleteDepartament } from "./modal.js";
 
 export function renderCompanyHome(company){
     const ul = document.querySelector(".home-companies__list");
@@ -165,6 +165,17 @@ export function renderDepartamentList(departament, companyName){
     })
     trashIcon.innerHTML = "delete";
     trashIcon.dataset.departamentId = departament.id;
+    trashIcon.addEventListener("click", ()=>{
+        const deleteDepartamentModal = document.querySelector("#departament-delete");
+        const closeDeleteModal = document.querySelector("#close__delete-departament");
+
+        deleteDepartamentModal.showModal();
+        deleteDepartamentModal.dataset.departamentId = departament.id;
+        handleDeleteDepartament();
+        closeDeleteModal.addEventListener("click", ()=>{
+            deleteDepartamentModal.close();
+        })
+    })
 
     divInfoContainer.append(h3DepartamentName, pDescription, spanCompanyName);
     divIconsContainer.append(eyeIcon, pencilIcon, trashIcon);
