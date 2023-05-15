@@ -303,3 +303,33 @@ export function renderModalViewStaticComponents(departament, uninployedList){
     pDepartamentDescription.innerHTML = departament.description;
     spanCompanyName.innerHTML = departament.company.name;
 }
+
+export function renderModalViewDinamicComponents(employee, companyName){
+    const list = document.querySelector(".list-users-modal");
+    const listElement = document.createElement("li");
+
+    const divInfoContainer = document.createElement("div");
+    const h3UserName = document.createElement("h3");
+    const spanCompanyName = document.createElement("span");
+
+    const button = document.createElement("button");
+
+    listElement.classList.add("list-users-modal__element", "flex", "flex__dir-column", "flex__space-between", "flex__shrink");
+
+    divInfoContainer.classList.add("list-users-modal__element__info", "flex", "flex__dir-column", "flex__align-center");
+    h3UserName.classList.add("list-users-modal__element__info__username");
+    spanCompanyName.classList.add("list-users-modal__element__info__company");
+
+    button.classList.add("list-users-modal__element__button");
+
+    h3UserName.innerHTML = employee.name;
+    spanCompanyName.innerHTML = companyName;
+
+    button.innerHTML = "Desligar";
+    button.dataset.employeeId = employee.id;
+
+    divInfoContainer.append(h3UserName, spanCompanyName);
+    listElement.append(divInfoContainer, button);
+
+    list.appendChild(listElement);
+}

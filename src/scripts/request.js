@@ -286,3 +286,19 @@ export async function hireUserRequest(userBody, employee_id){
     })
     return user;
 }
+
+export async function dismissEmployeeRequest(employee_id){
+    const user = await fetch(`${baseUrl}/employees/dismissEmployee/${employee_id}`,{
+        method: "PATCH",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("Erro");
+        }
+    })
+    return user;
+}

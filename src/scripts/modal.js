@@ -1,5 +1,5 @@
-import { createDepartamentRequest, deleteDepartamentRequest, deleteUserRequest, getAllCompanies, getDepartamentInfo, getEmployeesOutOfWork, hireUserRequest, updateDepartamentRequest, updateUserRequest } from "./request.js";
-import { renderModalSelectCompany, renderModalViewStaticComponents } from "./render.js";
+import { createDepartamentRequest, deleteDepartamentRequest, deleteUserRequest, dismissEmployeeRequest, getAllCompanies, getDepartamentInfo, getEmployeesOutOfWork, hireUserRequest, updateDepartamentRequest, updateUserRequest } from "./request.js";
+import { renderModalSelectCompany, renderModalViewDinamicComponents, renderModalViewStaticComponents } from "./render.js";
 import { adminListDepartaments, adminListEmployee } from "./admin.js";
 
 function handleModals(){
@@ -78,6 +78,21 @@ export async function handleViewDepartament(){
         adminListEmployee();
         viewDepartamentModal.close();
         console.log(hiring);
+    })
+    const list = document.querySelector(".list-users-modal");
+    list.innerHTML = "";
+
+    departament.employees.forEach((employee)=>{
+        renderModalViewDinamicComponents(employee, departament.company.name);
+    })
+    
+    const dismissEmployeeButton = document.querySelectorAll(".list-users-modal__element__button");
+    dismissEmployeeButton.forEach((button)=>{
+        button.addEventListener("click", async ()=>{
+            const dismissing = await dismissEmployeeRequest(button.dataset.employeeId);
+            adminListEmployee();
+            viewDepartamentModal.close();
+        })
     })
 }
 
