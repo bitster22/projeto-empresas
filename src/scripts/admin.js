@@ -44,16 +44,13 @@ async function adminSelectCompanies(){
             listDepartaments.innerHTML = "";
 
             const filteredDepartaments = (await getCompanyInfo(adminSelect.value));
-            console.log(filteredDepartaments.departments);
             if(filteredDepartaments.departments.length == 0){
                 renderNoDepartaments(`Empresa ${filteredDepartaments.name} não
                 possui departamentos`);
-                console.log(filteredDepartaments.name);
             }else{
                 filteredDepartaments.departments.forEach(async (departament)=>{
                     const companyName = (await getDepartamentInfo(departament.id)).company.name
                     renderDepartamentList(departament, companyName);
-                    console.log(departament);
                 })
             }
         }
@@ -76,6 +73,16 @@ async function adminListEmployee(){
 
 }
 
+function handleLogOut(){
+    const logOutButton = document.querySelector("#logout__admin");
+
+    logOutButton.addEventListener("click", ()=>{
+        localStorage.clear();
+        location.replace("../../index.html");
+    })
+}
+
 adminListDepartaments();
 adminListEmployee();
 adminSelectCompanies();
+handleLogOut();
