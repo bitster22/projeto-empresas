@@ -220,3 +220,20 @@ export async function deleteDepartamentRequest(department_id){
     })
     return departament;
 }
+
+export async function updateUserRequest(userBody, employee_id){
+    const user = await fetch(`${baseUrl}/employees/updateEmployee/${employee_id}`,{
+        method: "PATCH",
+        headers: requestHeaders,
+        body: JSON.stringify(userBody)
+    })
+    .then(async(res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("erro");
+        }
+    })
+    return user;
+}

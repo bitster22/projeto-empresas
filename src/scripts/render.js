@@ -1,4 +1,4 @@
-import { handleEditDepartament, handleDeleteDepartament } from "./modal.js";
+import { handleEditDepartament, handleDeleteDepartament, handleEditUser } from "./modal.js";
 
 export function renderCompanyHome(company){
     const ul = document.querySelector(".home-companies__list");
@@ -211,6 +211,17 @@ export function renderEmployeeList(employee, companyName){
 
     pencilIcon.innerHTML = "edit";
     pencilIcon.dataset.employeeId = employee.id;
+    pencilIcon.addEventListener("click", ()=>{
+        const userEditModal = document.querySelector("#user-edit");
+        const closeUserEditModal = document.querySelector("#close__edit-user");
+
+        userEditModal.showModal();
+        userEditModal.dataset.employeeId = employee.id;
+        handleEditUser();
+        closeUserEditModal.addEventListener("click", ()=>{
+            userEditModal.close();
+        })
+    })
     trashIcon.innerHTML = "delete";
     trashIcon.dataset.employeeId = employee.id;
 

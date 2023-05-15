@@ -1,6 +1,6 @@
-import { createDepartamentRequest, deleteDepartamentRequest, getAllCompanies, getDepartamentInfo, updateDepartamentRequest } from "./request.js";
+import { createDepartamentRequest, deleteDepartamentRequest, getAllCompanies, getDepartamentInfo, updateDepartamentRequest, updateUserRequest } from "./request.js";
 import { renderModalSelectCompany } from "./render.js";
-import { adminListDepartaments } from "./admin.js";
+import { adminListDepartaments, adminListEmployee } from "./admin.js";
 
 function handleModals(){
     const createDepartamentButton = document.querySelector(".create-departament");
@@ -82,13 +82,39 @@ async function handleCreateDepartament(){
             console.log("Preencha os campos -- toast");
         }else{
             const createDepartament = await createDepartamentRequest(CreateBody);
-            console.log(createDepartament);
         }
         adminListDepartaments();
         console.log(CreateBody);
     })
+}
 
-    
+export async function handleEditUser(){
+    const editUserModal = document.querySelector("#user-edit");
+    const inputs = document.querySelectorAll(".edit-user-input");
+    const editButton = document.querySelector("#modal-edit-user-button");
+
+    let editBody = {};
+    let count = 0;
+
+    editButton.addEventListener("click", async (event)=>{
+        event.preventDefault();
+
+        inputs.forEach((input)=>{
+            if(input.value.trim==""){
+                count++;
+            }
+            editBody[input.name] = input.value;
+        })
+        if(count!=0){
+            count=0;
+            console.log("Preencha os campos -- toast");
+        }else{
+            const editUser = await updateUserRequest(editBody, editUserModal.dataset.employeeId);
+            adminListEmployee();
+            editUserModal.close();
+            console.log(editUser)
+        }
+    })
 }
 
 handleModals();

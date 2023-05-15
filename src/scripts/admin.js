@@ -60,7 +60,7 @@ async function adminSelectCompanies(){
     })
 }
 
-async function adminListEmployee(){
+export async function adminListEmployee(){
     const listEmployees = document.querySelector(".list-users");
     listEmployees.innerHTML = "";
     const allEmployees = await getAllUsers();
