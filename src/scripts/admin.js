@@ -1,6 +1,6 @@
 import { getAllDepartaments, getCompanyInfo, getDepartamentInfo } from "./request.js";
 import { getAllCompanies } from "./request.js";
-import { renderDepartamentList, renderSelectCompany, renderEmployeeList, renderNoDepartaments } from "./render.js";
+import { renderDepartamentList, renderSelectCompany, renderEmployeeList, renderNoDepartaments } from "./render-admin.js";
 import { getAllUsers } from "./request.js";
 
 export async function adminListDepartaments(){

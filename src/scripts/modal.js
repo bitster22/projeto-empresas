@@ -1,5 +1,5 @@
 import { createDepartamentRequest, deleteDepartamentRequest, deleteUserRequest, dismissEmployeeRequest, getAllCompanies, getDepartamentInfo, getEmployeesOutOfWork, hireUserRequest, updateDepartamentRequest, updateUserRequest } from "./request.js";
-import { renderModalSelectCompany, renderModalViewDinamicComponents, renderModalViewStaticComponents } from "./render.js";
+import { renderModalSelectCompany, renderModalViewDinamicComponents, renderModalViewStaticComponents } from "./render-admin.js";
 import { adminListDepartaments, adminListEmployee } from "./admin.js";
 
 function handleModals(){
