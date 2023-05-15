@@ -170,3 +170,20 @@ export async function getCompanyInfo(company_id){
     })
     return companyInfo;
 }
+
+export async function createDepartamentRequest(departamentBody){
+    const departament = await fetch(`${baseUrl}/departments/create`, {
+        method: "POST",
+        headers: requestHeaders,
+        body: JSON.stringify(departamentBody)
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log("Erro");
+        }
+    })
+    return departament;
+}

@@ -242,12 +242,12 @@
             </div>
         </dialog>
         <dialog id="departament-create">
-            <span class="modal-close">X</span>
+            <span id="close__create-departament" class="modal-close">X</span>
             <div class="modal-container-create flex flex__dir-column">
                 <h2 class="modal__departament-name">Criar Departamento</h2>
-                <input type="text" placeholder="Nome do departamento" name="" id="">
-                <input type="text" placeholder="Descrição" name="" id="">
-                <select class="modal-company-select" name="" id="">
+                <input type="text" class="departament-create__input" placeholder="Nome do departamento" name="name" id="">
+                <input type="text" class="departament-create__input" placeholder="Descrição" name="description" id="">
+                <select class="departament-create__input modal-company-select" name="company_id" id="">
                     <option value="">Selecionar empresa</option>
                     <option value="">KenzieFlix</option>
                     <option value="">KenzieX</option>
@@ -296,5 +296,6 @@
         </dialog>
     </div>
     <script type="module" src="../scripts/admin.js"></script>
+    <script type="module" src="../scripts/modal.js"></script>
 </body>
 </html>

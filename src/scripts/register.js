@@ -32,8 +32,6 @@ function handleRegister(){
             registerBody[input.name] = input.value;
         })
 
-        console.log(registerBody);
-
         if(count!=0){
             count=0;
             console.log("Preencha os campos necessários");

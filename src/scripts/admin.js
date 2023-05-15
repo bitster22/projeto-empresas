@@ -3,7 +3,7 @@ import { getAllCompanies } from "./request.js";
 import { renderDepartamentList, renderSelectCompany, renderEmployeeList, renderNoDepartaments } from "./render.js";
 import { getAllUsers } from "./request.js";
 
-async function adminListDepartaments(){
+export async function adminListDepartaments(){
     const allDepartaments = await getAllDepartaments();
     const listDepartaments = document.querySelector(".list-department");
     listDepartaments.innerHTML = "";
@@ -35,6 +35,8 @@ async function adminSelectCompanies(){
     companiesInfo.forEach((company)=>{
         renderSelectCompany(company);
     })
+
+    adminSelect.value = "all";
 
     adminSelect.addEventListener("change", async ()=>{
         if(adminSelect.value=="all"){

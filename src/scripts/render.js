@@ -214,3 +214,13 @@ export function renderNoDepartaments(departamentPhrase){
     departaments.appendChild(noDepartaments);
 
 }
+
+export function renderModalSelectCompany(company){
+    const select = document.querySelector(".modal-company-select");
+    const option = document.createElement("option");
+
+    option.innerHTML = company.name;
+    option.value = company.id;
+
+    select.appendChild(option);
+}
