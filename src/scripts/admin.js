@@ -17,6 +17,7 @@ export async function adminListDepartaments(){
             renderDepartamentList(departament, companyName);
         })
     }
+    
 }
 
 async function adminSelectCompanies(){

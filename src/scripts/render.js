@@ -1,3 +1,5 @@
+import { handleEditDepartament } from "./modal.js";
+
 export function renderCompanyHome(company){
     const ul = document.querySelector(".home-companies__list");
 
@@ -151,6 +153,16 @@ export function renderDepartamentList(departament, companyName){
     eyeIcon.dataset.departamentId = departament.id;
     pencilIcon.innerHTML = "edit";
     pencilIcon.dataset.departamentId = departament.id;
+    pencilIcon.addEventListener("click", ()=>{
+        const editDepartamentModal = document.querySelector("#departament-edit");
+        const closeEditModal = document.querySelector("#close__edit-departament");
+        editDepartamentModal.showModal();
+        editDepartamentModal.dataset.departamentId = departament.id;
+        handleEditDepartament();
+        closeEditModal.addEventListener("click", ()=>{
+            editDepartamentModal.close();
+        })
+    })
     trashIcon.innerHTML = "delete";
     trashIcon.dataset.departamentId = departament.id;
 

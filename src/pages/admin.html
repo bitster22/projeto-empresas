@@ -61,7 +61,7 @@
                     </div>
                     <div class="list-department__element__icons flex flex__dir-column flex__justify-center">
                         <i class="material-symbols-outlined color-brand1">visibility</i>
-                        <i class="material-symbols-outlined color-yellow">edit</i>
+                        <i class="departament-edit-button material-symbols-outlined color-yellow">edit</i>
                         <i class="material-symbols-outlined color-red">delete</i>
                     </div>
                 </li>
@@ -266,11 +266,11 @@
             </div>
         </dialog>
         <dialog id="departament-edit">
-            <span class="modal-close">X</span>
+            <span id="close__edit-departament" class="modal-close">X</span>
             <div class="modal-container-edit flex flex__dir-column">
-                <h2 class="modal__departament-name">Editar usuário</h2>
-                <textarea name="" placeholder="Valores anteriores da descrição" id="" cols="30" rows="10"></textarea>
-                <button class="modal__buton__create">Salvar</button>
+                <h2 class="modal__departament-name">Editar departamento</h2>
+                <textarea name="description" placeholder="Valores anteriores da descrição" id="description-departament-edit" cols="30" rows="10"></textarea>
+                <button id="modal-edit-button" class="modal__buton__create">Salvar</button>
             </div>
         </dialog>
         <dialog id="departament-delete">

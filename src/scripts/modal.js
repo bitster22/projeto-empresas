@@ -1,4 +1,4 @@
-import { createDepartamentRequest, getAllCompanies } from "./request.js";
+import { createDepartamentRequest, getAllCompanies, getDepartamentInfo, updateDepartamentRequest } from "./request.js";
 import { renderModalSelectCompany } from "./render.js";
 import { adminListDepartaments } from "./admin.js";
 
@@ -27,6 +27,21 @@ async function createDepartamentSelectCompany(){
 
     companiesInfo.forEach((company)=>{
         renderModalSelectCompany(company);
+    })
+}
+
+export async function handleEditDepartament(){
+    const editDepartamentModal = document.querySelector("#departament-edit");
+    const departamentDescription = document.querySelector("#description-departament-edit");
+    const departamentEditButton = document.querySelector("#modal-edit-button");
+    departamentDescription.innerHTML =  (await getDepartamentInfo(editDepartamentModal.dataset.departamentId)).description;
+
+    let editBody = {}
+
+    departamentEditButton.addEventListener("click", async ()=>{
+        editBody[departamentDescription.name] = departamentDescription.value;
+        const departamentEdit = await updateDepartamentRequest(editBody, editDepartamentModal.dataset.departamentId);
+        adminListDepartaments();
     })
 }
 
@@ -63,3 +78,4 @@ async function handleCreateDepartament(){
 handleModals();
 createDepartamentSelectCompany();
 handleCreateDepartament();
+//handleEditDepartament()
