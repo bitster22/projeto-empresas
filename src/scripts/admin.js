@@ -3,6 +3,19 @@ import { getAllCompanies } from "./request.js";
 import { renderDepartamentList, renderSelectCompany, renderEmployeeList, renderNoDepartaments } from "./render-admin.js";
 import { getAllUsers } from "./request.js";
 
+function authentication(){
+    const token = localStorage.getItem("authToken");
+    const isAdm = JSON.parse(localStorage.getItem("isAdm"));
+
+    if(!token){
+        location.replace("../../index.html");
+    }else{
+        if(!isAdm){
+            location.replace("./user.html")
+        }
+    }
+}
+
 export async function adminListDepartaments(){
     const allDepartaments = await getAllDepartaments();
     const listDepartaments = document.querySelector(".list-department");
@@ -85,7 +98,10 @@ function handleLogOut(){
     })
 }
 
+
+
 adminListDepartaments();
 adminListEmployee();
 adminSelectCompanies();
 handleLogOut();
+authentication();

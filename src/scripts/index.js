@@ -5,6 +5,19 @@ import { categoryCompanyList } from "./render.js";
 import { renderCompanyHome } from "./render.js";
 import { renderSelectCategory } from "./render.js";
 
+function authentication(){
+    const token = localStorage.getItem("authToken");
+    const isAdm = JSON.parse(localStorage.getItem("isAdm"));
+
+    if(token){
+        if(isAdm){
+            location.replace("./src/pages/admin.html");
+        }else{
+            location.replace("./src/pages/user.html")
+        }
+    }
+}
+
 async function showCompaniesInfos(){
     await getAllCompanies();
     const companiesInfo = JSON.parse(localStorage.getItem("companies"));
@@ -61,6 +74,7 @@ function handleButtonHome(){
     })
 }
 
+authentication();
 showSelectCategories();
 showCompaniesInfos();
 handleButtonHome();

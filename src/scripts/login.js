@@ -1,5 +1,18 @@
 import { loginRequest } from "./request.js";
 
+function authentication(){
+    const token = localStorage.getItem("authToken");
+    const isAdm = JSON.parse(localStorage.getItem("isAdm"));
+
+    if(token){
+        if(isAdm){
+            location.replace("./admin.html");
+        }else{
+            location.replace("./user.html")
+        }
+    }
+}
+
 function handleButtonLoginPage(){
     const homeButton = document.querySelector("#login__home__button");
     const registerButton = document.querySelectorAll(".login__register__button");
@@ -42,5 +55,6 @@ function handleLogin(){
     })
 }
 
+authentication();
 handleLogin();
 handleButtonLoginPage();

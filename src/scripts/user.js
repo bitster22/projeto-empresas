@@ -5,6 +5,19 @@ import { renderUserCompany } from "./render.js";
 import { renderUserCompanyList } from "./render.js";
 import { renderUserCompanyNotHired } from "./render.js";
 
+function authentication(){
+    const token = localStorage.getItem("authToken");
+    const isAdm = JSON.parse(localStorage.getItem("isAdm"));
+
+    if(!token){
+        location.replace("../../index.html");
+    }else{
+        if(isAdm){
+            location.replace("./admin.html")
+        }
+    }
+}
+
 async function showUserInfos(){
     await getEmployeeInfo();
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -38,7 +51,7 @@ function handleLogOut(){
         location.replace("../../index.html");
     })
 }
-
+authentication();
 showUserInfos();
 showUserCompanyList();
 handleLogOut();
