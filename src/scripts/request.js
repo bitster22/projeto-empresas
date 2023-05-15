@@ -237,3 +237,19 @@ export async function updateUserRequest(userBody, employee_id){
     })
     return user;
 }
+
+export async function deleteUserRequest(employee_id){
+    const user = await fetch(`${baseUrl}/employees/deleteEmployee/${employee_id}`, {
+        method: "DELETE",
+        headers: requestHeaders
+    })
+    .then(async (res)=>{
+        if(res.ok){
+            const response = await res.json();
+            return response;
+        }else{
+            console.log(response.message);
+        }
+    })
+    return user;
+}

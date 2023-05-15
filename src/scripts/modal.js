@@ -1,4 +1,4 @@
-import { createDepartamentRequest, deleteDepartamentRequest, getAllCompanies, getDepartamentInfo, updateDepartamentRequest, updateUserRequest } from "./request.js";
+import { createDepartamentRequest, deleteDepartamentRequest, deleteUserRequest, getAllCompanies, getDepartamentInfo, updateDepartamentRequest, updateUserRequest } from "./request.js";
 import { renderModalSelectCompany } from "./render.js";
 import { adminListDepartaments, adminListEmployee } from "./admin.js";
 
@@ -54,7 +54,6 @@ export async function handleDeleteDepartament(){
     deleteDepartamentName.innerHTML = `Departamento ${(await getDepartamentInfo(deleteDepartamentModal.dataset.departamentId)).name}`
     deleteDepartamentButton.addEventListener("click", async ()=>{
         const deleteDepartament = await deleteDepartamentRequest(deleteDepartamentModal.dataset.departamentId);
-        console.log(deleteDepartament)
         adminListDepartaments();
         deleteDepartamentModal.close();
     })
@@ -112,8 +111,23 @@ export async function handleEditUser(){
             const editUser = await updateUserRequest(editBody, editUserModal.dataset.employeeId);
             adminListEmployee();
             editUserModal.close();
-            console.log(editUser)
         }
+    })
+}
+
+export async function handleDeleteUser(){
+    const deleteUserModal = document.querySelector("#user-delete");
+    const deleteUserName = document.querySelector("#user-delete-name");
+    const deleteUserButton = document.querySelector("#modal-remove-user-button");
+
+    deleteUserName.innerHTML = ` ${deleteUserModal.dataset.employeeName}`;
+
+    deleteUserButton.addEventListener("click", async ()=>{
+        const deleteUser = await deleteUserRequest(deleteUserModal.dataset.employeeId);
+        console.log(deleteUser);
+        adminListEmployee();
+        deleteUserModal.close();
+
     })
 }
 
