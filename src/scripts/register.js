@@ -1,4 +1,5 @@
-import { registerRequest } from "./request.js";
+import { registerRequest, red } from "./request.js";
+import { toast } from "./toast.js";
 
 function authentication(){
     const token = localStorage.getItem("authToken");
@@ -47,10 +48,9 @@ function handleRegister(){
 
         if(count!=0){
             count=0;
-            console.log("Preencha os campos necessários");
+            toast(red, "Preencha os campos necessários");
         }else{
-            const register = await registerRequest(registerBody);
-            console.log(register);
+            await registerRequest(registerBody);
         }
     })
 }

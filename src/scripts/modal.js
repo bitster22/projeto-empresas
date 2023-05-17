@@ -1,6 +1,7 @@
-import { createDepartamentRequest, deleteDepartamentRequest, deleteUserRequest, dismissEmployeeRequest, getAllCompanies, getDepartamentInfo, getEmployeesOutOfWork, hireUserRequest, updateDepartamentRequest, updateUserRequest } from "./request.js";
+import { createDepartamentRequest, deleteDepartamentRequest, deleteUserRequest, dismissEmployeeRequest, getAllCompanies, getDepartamentInfo, getEmployeesOutOfWork, hireUserRequest, red, updateDepartamentRequest, updateUserRequest } from "./request.js";
 import { renderModalSelectCompany, renderModalViewDinamicComponents, renderModalViewStaticComponents } from "./render-admin.js";
 import { adminListDepartaments, adminListEmployee } from "./admin.js";
+import { toast } from "./toast.js";
 
 function handleModals(){
     const createDepartamentButton = document.querySelector(".create-departament");
@@ -62,7 +63,6 @@ export async function handleDeleteDepartament(){
 
 export async function handleViewDepartament(){
     const viewDepartamentModal = document.querySelector("#departament-view");
-    const hireButton = document.querySelector(".modal__button__hire");
     const select = document.querySelector("#modal-view-select");
     const departament = await getDepartamentInfo(viewDepartamentModal.dataset.departamentId);
     const notEmployed = await getEmployeesOutOfWork();
@@ -70,6 +70,7 @@ export async function handleViewDepartament(){
     let hireBody = {};
 
     renderModalViewStaticComponents(departament, notEmployed);
+    const hireButton = document.querySelector(".modal__button__hire");
 
     hireButton.addEventListener("click", async ()=>{
         
@@ -77,7 +78,6 @@ export async function handleViewDepartament(){
         const hiring = await hireUserRequest(hireBody, select.value);
         adminListEmployee();
         viewDepartamentModal.close();
-        console.log(hiring);
     })
     const list = document.querySelector(".list-users-modal");
     list.innerHTML = "";
@@ -114,12 +114,11 @@ async function handleCreateDepartament(){
         })
         if(count!=0){
             count = 0;
-            console.log("Preencha os campos -- toast");
+            toast(red, "Preencha os campos necessários");
         }else{
             const createDepartament = await createDepartamentRequest(CreateBody);
         }
         adminListDepartaments();
-        console.log(CreateBody);
     })
 }
 
@@ -142,7 +141,7 @@ export async function handleEditUser(){
         })
         if(count!=0){
             count=0;
-            console.log("Preencha os campos -- toast");
+            toast(red, "Preencha os campos necessários");
         }else{
             const editUser = await updateUserRequest(editBody, editUserModal.dataset.employeeId);
             adminListEmployee();
@@ -160,7 +159,6 @@ export async function handleDeleteUser(){
 
     deleteUserButton.addEventListener("click", async ()=>{
         const deleteUser = await deleteUserRequest(deleteUserModal.dataset.employeeId);
-        console.log(deleteUser);
         adminListEmployee();
         deleteUserModal.close();
 

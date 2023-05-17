@@ -1,4 +1,5 @@
-import { loginRequest } from "./request.js";
+import { loginRequest, red } from "./request.js";
+import { toast } from "./toast.js";
 
 function authentication(){
     const token = localStorage.getItem("authToken");
@@ -47,7 +48,7 @@ function handleLogin(){
         })
         if(count !=0){
             count=0;
-            console.log("Preencha os campos necessários");
+            toast(red, "Preencha os campos necessários");
         }else{
             const token = await loginRequest(loginBody);
             return token;

@@ -1,9 +1,14 @@
+import { toast } from "./toast.js";
+
 const token = JSON.parse(localStorage.getItem("authToken")) || ""
 const baseUrl = "http://localhost:3333";
 const requestHeaders = {
     "Content-type": "application/json",
     Authorization: `Bearer ${token}`
 }
+
+export const red = '#df1545';
+export const green = '#168821';
 
 export async function getAllCompanies(){
     await fetch(`${baseUrl}/companies/readAll`, {
@@ -13,7 +18,7 @@ export async function getAllCompanies(){
             const response = await res.json();
             localStorage.setItem("companies", JSON.stringify(response));
         }else{
-            console.log("Erro - remover depois");
+            toast(red, "Erro. Empresas não carregadas");
         }
     })
 }
@@ -26,7 +31,7 @@ export async function getAllCategories(){
             const response = await res.json();
             localStorage.setItem("categories", JSON.stringify(response));
         }else{
-            console.log("Erro - remover depois");
+            toast(red, "Erro. Categorias não carregadas");
         }
     })
 }
@@ -39,7 +44,8 @@ export async function getCompanyByCategory(categoryName){
             const response = await res.json();
             return response;
         }else{
-            console.log("Erro - remover depois");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return filter;
@@ -59,17 +65,20 @@ export async function loginRequest(loginBody){
             localStorage.setItem("authToken", JSON.stringify(authToken));
             localStorage.setItem("isAdm", JSON.stringify(isAdm));
 
-            console.log(authToken, isAdm);
-
             if(!isAdm){
-                console.log("Toast");
-                location.replace("./user.html")
+                toast(green, "Login realizado com sucesso.");
+                setTimeout(()=>{
+                    location.replace("./user.html");
+                }, 2000)
             }else{
-                console.log("Toast");
-                location.replace("./admin.html")
+                toast(green, "Login admin realizado com sucesso.");
+                setTimeout(()=>{
+                    location.replace("./admin.html");
+                }, 2000)
             }
         }else{
-            console.log("Erro");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
 }
@@ -84,7 +93,8 @@ export async function getEmployeeInfo(){
             const response = await res.json();
             localStorage.setItem("userInfo", JSON.stringify(response));
         }else{
-            console.log("Erro - colocar o toast");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
 }
@@ -99,7 +109,8 @@ export async function getDepartamentInfo(departament_id){
             const response = await res.json();
             return response;
         }else{
-            console.log("Erro - colocar o toast");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return departamentInfo;
@@ -114,10 +125,14 @@ export async function registerRequest(registerBody){
     .then(async (res)=>{
         if(res.ok){
             const response = await res.json();
-            location.replace("./login.html")
+            toast(green, "Cadastro realizado com sucesso!");
+            setTimeout(() => {
+                location.replace("./login.html");
+            }, 2000);
             return response;
         }else{
-            console.log("Erro");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return register;
@@ -133,7 +148,8 @@ export async function getAllDepartaments(){
             const response = await res.json();
             return response;
         }else{
-            console.log("Erro - colocar o toast");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return allDepartaments;
@@ -149,7 +165,8 @@ export async function getAllUsers(){
             const response = await res.json();
             return response;
         }else{
-            console.log("Erro - colocar o toast");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return allUsers;
@@ -165,7 +182,8 @@ export async function getCompanyInfo(company_id){
             const response = await res.json();
             return response;
         }else{
-            console.log("Erro, colocar o toast");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return companyInfo;
@@ -180,9 +198,11 @@ export async function createDepartamentRequest(departamentBody){
     .then(async (res)=>{
         if(res.ok){
             const response = await res.json();
+            toast(green, `Departamento ${response.name} criado com sucesso`);
             return response;
         }else{
-            console.log("Erro");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return departament;
@@ -197,9 +217,11 @@ export async function updateDepartamentRequest(departamentBody, department_id){
     .then(async(res)=>{
         if(res.ok){
             const response = await res.json();
+            toast(green, response.message);
             return response;
         }else{
-            console.log("Erro");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return departament;
@@ -213,9 +235,11 @@ export async function deleteDepartamentRequest(department_id){
     .then(async (res)=>{
         if(res.ok){
             const response = await res.json();
+            toast(green, response.message);
             return response;
         }else{
-            console.log(response.message);
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return departament;
@@ -230,9 +254,11 @@ export async function updateUserRequest(userBody, employee_id){
     .then(async(res)=>{
         if(res.ok){
             const response = await res.json();
+            toast(green, "Usuário atualizado com sucesso");
             return response;
         }else{
-            console.log("erro");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return user;
@@ -246,9 +272,11 @@ export async function deleteUserRequest(employee_id){
     .then(async (res)=>{
         if(res.ok){
             const response = await res.json();
+            toast(green, response.message);
             return response;
         }else{
-            console.log(response.message);
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return user;
@@ -264,7 +292,8 @@ export async function getEmployeesOutOfWork(){
             const response = await res.json();
             return response;
         }else{
-            console.log("Erro - colocar o toast");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return users;
@@ -279,9 +308,11 @@ export async function hireUserRequest(userBody, employee_id){
     .then(async (res)=>{
         if(res.ok){
             const response = await res.json();
+            toast(green, response.message);
             return response;
         }else{
-            console.log("Erro");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return user;
@@ -295,9 +326,11 @@ export async function dismissEmployeeRequest(employee_id){
     .then(async (res)=>{
         if(res.ok){
             const response = await res.json();
+            toast(green, response.message);
             return response;
         }else{
-            console.log("Erro");
+            const response = await res.json();
+            toast(red, response.message);
         }
     })
     return user;

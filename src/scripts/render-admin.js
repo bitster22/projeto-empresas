@@ -182,6 +182,7 @@ export function renderModalViewStaticComponents(departament, uninployedList){
     const pDepartamentDescription = document.querySelector(".modal__departament-description");
     const spanCompanyName = document.querySelector(".modal__departament-company");
     const select = document.querySelector("#modal-view-select");
+    const divButton = document.querySelector("#hire-button-div");
     select.innerHTML="";
     const optionSelect = document.createElement("option");
     optionSelect.innerHTML = "Selecionar usuário";
@@ -195,6 +196,12 @@ export function renderModalViewStaticComponents(departament, uninployedList){
         option.value = employee.id;
         select.appendChild(option);
     })
+
+    divButton.innerHTML = "";
+    const button = document.createElement("button");
+    button.classList.add("modal__button__hire");
+    button.innerHTML = "Contratar";
+    divButton.appendChild(button);
 
     h2DepartamentName.innerHTML = departament.name;
     pDepartamentDescription.innerHTML = departament.description;

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../styles/select.css">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/admin/admin.css">
+    <link rel="stylesheet" href="../styles/toast.css">
     <link rel="stylesheet" href="../styles/admin/list-department.css">
     <link rel="stylesheet" href="../styles/admin/list-users.css">
     <link rel="stylesheet" href="../styles/admin/modal.css">
@@ -214,7 +215,9 @@
                         <option value="">marcos</option>
                         <option value="">Vanessa</option>
                     </select>
-                    <button class="modal__button__hire">Contratar</button>
+                    <div id="hire-button-div">
+                        <button class="modal__button__hire">Contratar</button>
+                    </div>
                 </div>
                 <ul class="list-users-modal flex">
                     <li class="list-users-modal__element flex flex__dir-column flex__space-between flex__shrink">
@@ -294,6 +297,9 @@
                 <button id="modal-remove-user-button" class="modal__buton__remove">Remover</button>
             </div>
         </dialog>
+    </div>
+    <div class="toast__container hidden">
+        <p>Login realizado com sucesso</p>
     </div>
     <script type="module" src="../scripts/admin.js"></script>
     <script type="module" src="../scripts/modal.js"></script>

@@ -22,7 +22,6 @@ async function showUserInfos(){
     await getEmployeeInfo();
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     renderUserInfo(userInfo);
-    console.log(userInfo)
 }
 
 async function showUserCompanyList(){
