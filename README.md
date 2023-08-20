@@ -1,4 +1,4 @@
-#Kenzie empresas
+# Kenzie empresas
 
 Projeto de gerenciamento de empresas para RH, possibilitando a adição, leitura, atualização e deleção de dados na aplicação, como empresas e funcionários.
 Necessário a API local para o funcionamento correto da aplicação.
