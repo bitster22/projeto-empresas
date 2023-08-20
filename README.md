@@ -1,7 +1,8 @@
-Bom Projeto!! 
+#Kenzie empresas
+
+Projeto de gerenciamento de empresas para RH, possibilitando a adição, leitura, atualização e deleção de dados na aplicação, como empresas e funcionários.
+Necessário a API local para o funcionamento correto da aplicação.
 
 Doc: http://localhost:3333/api-documentation/
-
-Fgima: https://www.figma.com/file/lrbOLWLRjonxYYVOxeLEQm/%5BM2%5D-%F0%9F%8F%81-Entrega---Kenzie-Empresas
 
 APi Local: https://github.com/Kenzie-Academy-Brasil-Developers/kenzie-empresas-API
